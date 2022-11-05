@@ -1701,6 +1701,7 @@ MonoBehaviour:
   visibleGunTip: {fileID: 314033336}
   MainCamera: {fileID: 565188650}
   AimAssistSize: 1
+  maxDistance: 100
   PullForceScale: 0.6
   LookPullForce: -0.5
   GrappleActionReference: {fileID: 2164807841012077001, guid: c348712bda248c246b8c49b3db54643f,
@@ -1711,11 +1712,14 @@ MonoBehaviour:
   BuzzController: {fileID: 1579869137}
   grappleBuzzAmp: 0.5
   grappleBuzzDuration: 0.01
+  controller: {fileID: 0}
   source: {fileID: 1219395123}
   clip: {fileID: 8300000, guid: 87d6fa61c2c0b4b4ebce99cd773229e3, type: 3}
   Glasses: []
   particleHitPoint: {fileID: 1161677052}
   GrappleHitSound: {fileID: 8300000, guid: a89426c301d3ca2438e26e4afbbc17e4, type: 3}
+  grapple: {fileID: 0}
+  GrapplePartMeshes: []
 --- !u!114 &1219395125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,6 +1740,9 @@ MonoBehaviour:
   target: {fileID: 1579869132}
   climbForce: 750
   climbDrag: 500
+  source: {fileID: 0}
+  punch1: {fileID: 0}
+  punch2: {fileID: 0}
 --- !u!54 &1219395126
 Rigidbody:
   m_ObjectHideFlags: 0
