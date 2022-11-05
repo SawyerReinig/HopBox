@@ -16,7 +16,7 @@ public class GrapplingGun : MonoBehaviour {
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, player, spawnpoint, lefthand, righthand, visibleGunTip;
-    MeshRenderer GunTipMesh;
+    //MeshRenderer GunTipMesh;
     public Camera MainCamera; 
     public float AimAssistSize = 1; 
     public float maxDistance = 100f;
@@ -53,7 +53,7 @@ public class GrapplingGun : MonoBehaviour {
 
     void Awake() {
         lr = GetComponent<LineRenderer>();
-        GunTipMesh = visibleGunTip.GetComponent<MeshRenderer>();
+        //GunTipMesh = visibleGunTip.GetComponent<MeshRenderer>();
     }
 
     void Update() {
@@ -68,9 +68,9 @@ public class GrapplingGun : MonoBehaviour {
 
             ReSpawn.action.performed += Re_Spawn;
 
-            if(!GunTipMesh.enabled){
-                StopGrappleNoButton(); 
-            } 
+            // if(!GunTipMesh.enabled){
+            //     StopGrappleNoButton(); 
+            // } 
  
              
     }
@@ -85,7 +85,7 @@ public class GrapplingGun : MonoBehaviour {
     /// </summary>
     void StartGrapple(InputAction.CallbackContext obj) {
         RaycastHit hit;
-        if (Physics.Raycast(gunTip.position, /*AimAssistSize, */gunTip.forward, out hit, maxDistance, whatIsGrappleable) && GunTipMesh.enabled) {   
+        if (Physics.Raycast(gunTip.position, /*AimAssistSize, */gunTip.forward, out hit, maxDistance, whatIsGrappleable) /*&& GunTipMesh.enabled*/) {   
             StopGrapple(obj); 
             source.PlayOneShot(clip); 
             grapplePoint = hit.point;
@@ -125,7 +125,7 @@ public class GrapplingGun : MonoBehaviour {
 
      void StartGrappleNoCallback() {
         RaycastHit hit;
-        if (Physics.Raycast(gunTip.position, /*AimAssistSize, */gunTip.forward, out hit, maxDistance, whatIsGrappleable) && GunTipMesh.enabled && lr.positionCount == 0) {    //this likely needs to change to be a raycast from the gun not the camera
+        if (Physics.Raycast(gunTip.position, /*AimAssistSize, */gunTip.forward, out hit, maxDistance, whatIsGrappleable) /*&& GunTipMesh.enabled*/ && lr.positionCount == 0) {    //this likely needs to change to be a raycast from the gun not the camera
             StopGrappleNoButton(); 
             source.PlayOneShot(clip); 
             grapplePoint = hit.point;
